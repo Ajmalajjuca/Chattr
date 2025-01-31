@@ -1,7 +1,7 @@
 'use client'
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSocket } from '@/context/SocketContext';
-import { Mic, MicOff, Video, VideoOff, PhoneOff, Phone, Users, AlertCircle } from 'lucide-react';
+import { Mic, MicOff, Video, VideoOff, PhoneOff, Users, AlertCircle } from 'lucide-react';
 import VideoContainer from './VideoContainer';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
@@ -29,6 +29,7 @@ const VideoCall = () => {
                     loading: false
                 });
             } catch (err) {
+                console.log(err);
                 setError("Unable to access media devices");
                 setDeviceStatus(prev => ({ ...prev, loading: false }));
             }
