@@ -20,6 +20,6 @@ export type OngoingCall = {
 
 export type PeerData ={
     peerConnection:Peer.Instance
-    stream:MediaStream,
+    stream:MediaStream|undefined,
     participants:Socketuser
 }

@@ -164,12 +164,12 @@ export const SocketContextProvider = ({ children }: { children: React.ReactNode 
 
         peer.on('stream', (stream) => {
             setPeer((prevPeer) => {
-                if (prevPeer) {
-                    return { ...prevPeer, stream }
-                }
-                return prevPeer
+              if (prevPeer) {
+                return { ...prevPeer, stream }
+              }
+              return prevPeer
             })
-        })
+          })
         peer.on('error', console.error)
         peer.on('close', () => handleHangup({}))
 
@@ -198,7 +198,7 @@ export const SocketContextProvider = ({ children }: { children: React.ReactNode 
         setPeer({
             peerConnection: newPeer,
             participants: conectionData.OngoingCall.participants.receiver,
-            stream: undefined
+            stream:undefined
         })
 
         newPeer.on('signal', async (data: SignalData) => {
