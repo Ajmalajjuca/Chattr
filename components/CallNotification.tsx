@@ -19,7 +19,8 @@ const CallNotification = () => {
                         <div className="absolute inset-0 rounded-full animate-ping bg-blue-400/50" />
                         <img
                             src={OngoingCall.participants.caller.profile.imageUrl}
-                            alt={OngoingCall.participants.caller.profile.fullName}
+                            alt={OngoingCall.participants.caller.profile.fullName || "Unknown"}
+
                             className="h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg"
                         />
                     </div>
@@ -37,12 +38,12 @@ const CallNotification = () => {
                     {/* Action buttons */}
                     <div className="flex items-center justify-center gap-6 pt-4">
                         {/* Accept button */}
-                        <button onClick={() => handleJoinCall(OngoingCall)} className="group flex items-center justify-center h-14 w-14 bg-green-500 hover:bg-green-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-green-300/50">
+                        <button title='btn' onClick={() => handleJoinCall(OngoingCall)} className="group flex items-center justify-center h-14 w-14 bg-green-500 hover:bg-green-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-green-300/50">
                             <Phone className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
                         </button>
 
                         {/* Reject button */}
-                        <button onClick={() => handleHangup({ OngoingCall: OngoingCall ? OngoingCall : undefined, isEmitHangup: true })} className="group flex items-center justify-center h-14 w-14 bg-red-500 hover:bg-red-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-300/50">
+                        <button title='btn' onClick={() => handleHangup({ OngoingCall: OngoingCall ? OngoingCall : undefined, isEmitHangup: true })} className="group flex items-center justify-center h-14 w-14 bg-red-500 hover:bg-red-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-red-300/50">
                             <PhoneOff className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
                         </button>
                     </div>
